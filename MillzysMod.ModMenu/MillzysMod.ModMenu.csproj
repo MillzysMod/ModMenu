@@ -1,0 +1,37 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <GenerateAssemblyInfo>False</GenerateAssemblyInfo>
+        <AssemblyName>MillzysMod.ModMenu</AssemblyName>
+        <RootNamespace>MillzysMod.ModMenu</RootNamespace>
+        <Version>0.1.0</Version>
+        <Title>Millzy's ModMenu</Title>
+      <OutputType>Library</OutputType>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <None Include="MillzysMod.ModMenu.csproj.user" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ModFiles Include="$(OutputPath)\MillzysMod.ModMenu.dll;$(OutputPath)\MillzysMod.ModMenu.pdb" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Reference Include="MelonLoader">
+        <HintPath>$(BonelabDir)\MelonLoader\net6\MelonLoader.dll</HintPath>
+      </Reference>
+    </ItemGroup>
+
+    <Import Project="Sdk.targets" Sdk="Microsoft.NET.Sdk" />
+  
+    <Target Name="AfterBuild">
+      <Message Text="Copying mod files...." Importance="high" />
+      <Copy SourceFiles="@(ModFiles)" DestinationFolder="$(BonelabDir)\Mods\" />
+      <Message Text="Done!" Importance="high" />
+    </Target>
+  
+</Project>
