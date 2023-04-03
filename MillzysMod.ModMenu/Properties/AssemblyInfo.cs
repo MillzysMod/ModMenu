@@ -29,5 +29,3 @@ using BuildInfo = MillzysMod.ModMenu.Properties.BuildInfo;
 
 [assembly: MelonPlatform(MelonPlatformAttribute.CompatiblePlatforms.WINDOWS_X64)]
 [assembly: MelonPlatformDomain(MelonPlatformDomainAttribute.CompatibleDomains.IL2CPP)]
-
-[assembly: HarmonyDontPatchAll]
