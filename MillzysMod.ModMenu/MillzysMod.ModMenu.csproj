@@ -326,18 +326,23 @@
         </Reference>
     </ItemGroup>
     <ItemGroup>
+        <Compile Include="CustomTypes\MainMenuModifier.cs" />
+        <Compile Include="HarmonyPatches\GameControl_MenuVoidG114Patch.cs" />
+        <Compile Include="HarmonyPatches\GameControl_startupPatch.cs" />
+        <Compile Include="Mod.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
+        <Compile Include="Properties\BuildInfo.cs" />
     </ItemGroup>
     <ItemGroup>
       <Content Include="MillzysMod.ModMenu.csproj.user" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-    <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-         Other similar extension points exist, see Microsoft.Common.targets.
-    <Target Name="BeforeBuild">
-    </Target>
+    
+    <ItemGroup>
+        <ModFiles Include="$(OutputPath)\MillzysMod.ModMenu.dll;$(OutputPath)\MillzysMod.ModMenu.pdb"/>
+    </ItemGroup>
+    
     <Target Name="AfterBuild">
+        <Copy SourceFiles="@(ModFiles)" DestinationFolder="$(BonelabDir)\Mods\"/>
     </Target>
-    -->
-
 </Project>
