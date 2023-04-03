@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿using System;
+using System.Reflection;
 using System.Runtime.InteropServices;
 using MelonLoader;
 using MillzysMod.ModMenu;
@@ -22,3 +23,11 @@ using BuildInfo = MillzysMod.ModMenu.Properties.BuildInfo;
 
 [assembly: MelonInfo(typeof(Mod), BuildInfo.Name, BuildInfo.Version, BuildInfo.Author)]
 [assembly: MelonGame("Stress Level Zero", "BONELAB")]
+
+[assembly: MelonColor(ConsoleColor.Magenta)]
+[assembly: MelonAuthorColor(ConsoleColor.Magenta)]
+
+[assembly: MelonPlatform(MelonPlatformAttribute.CompatiblePlatforms.WINDOWS_X64)]
+[assembly: MelonPlatformDomain(MelonPlatformDomainAttribute.CompatibleDomains.IL2CPP)]
+
+[assembly: HarmonyDontPatchAll]
